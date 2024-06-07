@@ -15,6 +15,7 @@ export class UserFormComponent implements OnInit {
   public userForm: FormGroup;
   public roles: any[] = [];
   public isEditMode: boolean = false;
+  userId: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -28,7 +29,7 @@ export class UserFormComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       role: ['', Validators.required],
-      status: ['active', Validators.required]
+      status: ['active', Validators.required],
     });
 
   }
@@ -40,8 +41,9 @@ export class UserFormComponent implements OnInit {
     });
  // Check if we are in edit mode
  this.route.queryParams.subscribe(params => {
-  const id = params['id'];
-  if (id) {
+ 
+  this.userId = params['id'] ? params['id'] : null;
+  if (this.userId) {
     this.isEditMode = true;
     // this.userService.getUser(+id).subscribe(user => {
     //   console.log('user data',user);
@@ -50,9 +52,10 @@ export class UserFormComponent implements OnInit {
     //   // Remove password control in edit mode
     //   this.userForm.removeControl('password');
     // });
+    // this.userForm.get('id')?.setValue(id)
     this.userService.getUsers().subscribe({
       next: (res) => {
-        const filterData = res.filter((el) => el.id == id );
+        const filterData = res.filter((el) => el.id == this.userId );
         this.userForm.patchValue(filterData[0])
          // Remove password control in edit mode
       this.userForm.removeControl('password');
@@ -67,11 +70,13 @@ export class UserFormComponent implements OnInit {
 
 saveUser(): void {
   if (this.userForm.invalid) {
+    this.userForm.markAllAsTouched();
+   
     return;
   }
 
-  if (this.isEditMode) {
-    this.userService.updateUser(this.userForm.value).subscribe(() => {
+  if (this.isEditMode && this.userId) {
+    this.userService.updateUser(this.userId, this.userForm.value).subscribe(() => {
       alert('User updated successfully!');
       this.router.navigate(['/users']);
     }, error => {

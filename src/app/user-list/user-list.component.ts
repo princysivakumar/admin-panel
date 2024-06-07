@@ -3,11 +3,12 @@ import { UserService } from '../services/user.service';
 import { MatIconModule } from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { Router } from '@angular/router';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [MatIconModule, MatTooltipModule],
+  imports: [MatIconModule, MatTooltipModule,CommonModule],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss',
   
@@ -33,6 +34,10 @@ export class UserListComponent implements OnInit {
     this.userService.deleteUser(id).subscribe(() => {
       this.users = this.users.filter(user => user.id !== id);
     });
+  }
+
+  addUser(){
+    this.router.navigate(['/user-form'])
   }
 
 

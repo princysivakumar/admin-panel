@@ -1,1 +1,17 @@
-<p>role-list works!</p>
+<div class="container mx-auto mt-5 ">
+    <h2 class="text-2xl font-bold mb-5">Role List</h2>
+    <button (click)="addRole()" class="bg-blue-500 text-white px-4 py-2 rounded mb-4">Add Role</button>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 ">
+        @for (role of roles; track $index) {
+            <div class="bg-white p-4 rounded shadow border flex flex-col h-full">
+                <h3 class="text-xl font-bold">{{ role.name }}</h3>
+                <div class="flex-grow">{{ role.description }}</div>
+                <div class="flex justify-between mt-2">
+                  <button (click)="editRole(role.id)" class="bg-yellow-500 text-white px-2 py-1 rounded">Edit Role</button>
+                  <button (click)="deleteRole(role.id)" class="bg-red-500 text-white px-2 py-1 rounded">Delete Role</button>
+                </div>
+              </div>
+              
+    }
+    </div>
+  </div>

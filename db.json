@@ -1,18 +1,43 @@
 {
   "users": [
-    { "id": 1, "name": "John Doe", "email": "john@example.com", "role": "Admin", "status": "active" },
-    { "id": 2, "name": "Jane Smith", "email": "jane@example.com", "role": "User", "status": "inactive" }
+    {
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "role": "User",
+      "status": "inactive",
+      "id": "2"
+    },
+    {
+      "id": "50fd",
+      "name": "Princy",
+      "email": "princy@gmail.com",
+      "password": "Test@123",
+      "role": "Manager",
+      "status": "active"
+    },
+    {
+      "name": "Akshay",
+      "email": "akshay@gmail.com",
+      "role": "User",
+      "status": "active",
+      "id": "0c54"
+    }
   ],
   "roles": [
     {
       "id": "1",
       "name": "Admin",
-      "description": "Administrator role"
+      "description": "Preparing, organising and storing information in paper and digital form. Dealing with queries on the phone and by email. Greeting visitors at reception. Managing diaries, scheduling meetings and booking rooms."
     },
     {
       "id": "2",
       "name": "User",
-      "description": "Regular user role"
+      "description": "A user is an individual who interacts with a website, online service, app or platform in any way."
+    },
+    {
+      "id": "3",
+      "name": "Employee",
+      "description": "A person who is paid to work for an organization or for another person"
     }
   ]
 }

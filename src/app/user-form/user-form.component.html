@@ -3,35 +3,47 @@
     <form [formGroup]="userForm" (ngSubmit)="saveUser()">
       <div class="mb-4">
         <label class="block">Name</label>
-        <input formControlName="name" class="border px-2 py-1 w-full" required>
-        <!-- <div *ngIf="userForm.get('name').invalid && userForm.get('name').touched" class="text-red-500">
-          Name is required.
-        </div> -->
+        <input formControlName="name" class="border px-2 py-1 w-full" >
+        @if (userForm.get('name')?.invalid && userForm.get('name')?.touched) {
+          <div class="text-red-500">   Name is required</div>
+        }
       </div>
       <div class="mb-4">
         <label class="block">Email</label>
-        <input formControlName="email" type="email" class="border px-2 py-1 w-full" required>
-        <!-- <div *ngIf="userForm.get('email').invalid && userForm.get('email').touched" class="text-red-500">
-          Valid email is required.
-        </div> -->
+        <input formControlName="email" type="email" class="border px-2 py-1 w-full" >
+        @if (userForm.get('email')?.invalid && userForm.get('email')?.touched) {
+          <div class="text-red-500">
+            Valid email is required.
+          </div>
+        }
+      
       </div>
       @if (!isEditMode) {
       <div class="mb-4" >
         <label class="block">Password</label>
-        <input formControlName="password" type="password" class="border px-2 py-1 w-full" required>
-        <!-- <div *ngIf="userForm.get('password').invalid && userForm.get('password').touched" class="text-red-500">
-          Password is required.
-        </div> -->
+        <input formControlName="password" type="password" class="border px-2 py-1 w-full" >
+        @if (userForm.get('password')?.invalid && userForm.get('password')?.touched) {
+          <div  class="text-red-500">
+            Password is required.
+          </div>
+        }
+       
       </div>
     }
       <div class="mb-4">
         <label class="block">Role</label>
         <select formControlName="role" class="border px-2 py-1 w-full">
-          <!-- <option *ngFor="let role of roles" [value]="role.name">{{ role.name }}</option> -->
+         
+           @for (role of roles; track $index) {
+ <option >{{ role.name }}</option>
+           }
         </select>
-        <!-- <div *ngIf="userForm.get('role').invalid && userForm.get('role').touched" class="text-red-500">
-          Role is required.
-        </div> -->
+       
+        @if (userForm.get('role')?.invalid && userForm.get('role')?.touched) {
+          <div  class="text-red-500">
+            Role is required.
+          </div>
+        }
       </div>
       <div class="mb-4">
         <label class="block">Status</label>
@@ -39,11 +51,14 @@
           <option value="active">Active</option>
           <option value="inactive">Inactive</option>
         </select>
-        <!-- <div *ngIf="userForm.get('status').invalid && userForm.get('status').touched" class="text-red-500">
-          Status is required.
-        </div> -->
+      
+        @if (userForm.get('status')?.invalid && userForm.get('status')?.touched) {
+          <div  class="text-red-500">
+            Status is required.
+          </div>
+        }
       </div>
-      <button type="submit" class="bg-green-500 text-white px-4 py-2" [disabled]="userForm.invalid">Save</button>
+      <button type="submit" class="bg-green-500 text-white px-4 py-2" >Save</button>
     </form>
   </div>
   

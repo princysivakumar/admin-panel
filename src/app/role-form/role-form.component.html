@@ -1,1 +1,27 @@
-<p>role-form works!</p>
+<!-- role-form.component.html -->
+<div class="container mx-auto mt-5">
+    <h2 class="text-2xl font-bold mb-5">{{ roleId ? 'Edit Role' : 'Add Role' }}</h2>
+    <form [formGroup]="roleForm" (ngSubmit)="saveRole()">
+      <div class="mb-4">
+        <label for="name" class="block text-gray-700">Name</label>
+        <input id="name" formControlName="name" type="text" class="mt-1 block w-full border border-gray-300 rounded py-2 px-3" />
+        @if (roleForm.get('name')?.invalid && roleForm.get('name')?.touched) {
+            <div  class="text-red-500">
+                Name is required.
+            </div>
+          }
+      </div>
+      <div class="mb-4">
+        <label for="description" class="block text-gray-700">Description</label>
+       
+        <textarea id="description" formControlName="description" class="mt-1 block w-full border border-gray-300 rounded py-2 px-3"></textarea>
+        @if (roleForm.get('description')?.invalid && roleForm.get('description')?.touched) {
+            <div  class="text-red-500">
+                Description is required.
+            </div>
+          }
+      </div>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">{{ roleId ? 'Update' : 'Save' }}</button>
+    </form>
+</div>
+  
