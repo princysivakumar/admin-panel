@@ -25,18 +25,18 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  editUser(user: any): void {
+  public editUser(user: any) {
     // Navigate to  user form with user data
     this.router.navigate(['/user-form'], { queryParams: { id: user.id } });
   }
 
-  deleteUser(id: number): void {
+  public deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe(() => {
       this.users = this.users.filter(user => user.id !== id);
     });
   }
 
-  addUser(){
+  public addUser(){
     this.router.navigate(['/user-form'])
   }
 

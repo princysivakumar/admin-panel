@@ -1,6 +1,9 @@
-<div class="container mx-auto mt-5 ">
-    <h2 class="text-2xl font-bold mb-5">Role List</h2>
-    <button (click)="addRole()" class="bg-blue-500 text-white px-4 py-2 rounded mb-4">Add Role</button>
+<div class="container mx-auto mt-5 p-5">
+    <h2 class="text-lg font-bold mb-5 text-center hover:underline">Role List</h2>
+  <div class=" flex justify-end">
+
+    <button (click)="addRole()" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 hover:bg-blue-700 animate-bounce">Add Role</button>
+  </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 ">
         @for (role of roles; track $index) {
             <div class="bg-white p-4 rounded shadow border flex flex-col h-full">

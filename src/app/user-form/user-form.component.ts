@@ -45,14 +45,6 @@ export class UserFormComponent implements OnInit {
   this.userId = params['id'] ? params['id'] : null;
   if (this.userId) {
     this.isEditMode = true;
-    // this.userService.getUser(+id).subscribe(user => {
-    //   console.log('user data',user);
-      
-    //   this.userForm.patchValue(user);
-    //   // Remove password control in edit mode
-    //   this.userForm.removeControl('password');
-    // });
-    // this.userForm.get('id')?.setValue(id)
     this.userService.getUsers().subscribe({
       next: (res) => {
         const filterData = res.filter((el) => el.id == this.userId );
@@ -68,10 +60,9 @@ export class UserFormComponent implements OnInit {
 }
 
 
-saveUser(): void {
+saveUser() {
   if (this.userForm.invalid) {
     this.userForm.markAllAsTouched();
-   
     return;
   }
 
