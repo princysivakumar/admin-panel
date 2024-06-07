@@ -1,0 +1,23 @@
+<div class="container mx-auto p-4">
+    <h2 class="text-2xl mb-4 text-center font-semibold text-blue-500">User List</h2>
+    <div class=" grid grid-cols-7 justify-items-center items-center py-3 border-b font-bold">
+        <div>Name</div>
+        <div class="col-span-2">Email</div>
+        <div>Role</div>
+        <div>Status</div>
+        <div class="col-span-2">Actions</div>
+    </div>
+    @for (user of users; track $index) {
+    <div class=" grid grid-cols-7 justify-items-center items-center py-3 ">
+        <div>{{ user.name }}</div>
+        <div class="col-span-2">{{ user.email }}</div>
+        <div>{{ user.role }}</div>
+        <div>{{ user.status }}</div>
+        <button (click)="editUser(user)"  ><mat-icon class="text-green-700" matTooltip="Edit">create</mat-icon></button>
+        <button (click)="deleteUser(user.id)" ><mat-icon class="text-red-700" matTooltip="Delete">delete</mat-icon></button>
+    </div>
+}
+  </div>
+
+
+<!-- todo check tool tip its working not properly -->
