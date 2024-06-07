@@ -34,7 +34,7 @@ describe('RoleService', () => {
       expect(roles).toEqual(dummyRoles);
     });
 
-    const req = httpMock.expectOne(`${service.apiUrl}/roles`);
+    const req = httpMock.expectOne(`${service.apiUrl}`);
     expect(req.request.method).toBe('GET');
     req.flush(dummyRoles);
   });

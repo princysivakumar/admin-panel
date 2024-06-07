@@ -34,7 +34,7 @@ describe('UserService', () => {
       expect(users).toEqual(dummyUsers);
     });
 
-    const req = httpMock.expectOne(`${service.apiUrl}/users`);
+    const req = httpMock.expectOne(`${service.apiUrl}`);
     expect(req.request.method).toBe('GET');
     req.flush(dummyUsers);
   });
@@ -46,7 +46,7 @@ describe('UserService', () => {
       expect(user).toEqual(newUser);
     });
 
-    const req = httpMock.expectOne(`${service.apiUrl}/users`);
+    const req = httpMock.expectOne(`${service.apiUrl}`);
     expect(req.request.method).toBe('POST');
     expect(req.request.body).toEqual(newUser);
     req.flush(newUser);
@@ -59,7 +59,7 @@ describe('UserService', () => {
       expect(user).toEqual(updatedUser);
     });
 
-    const req = httpMock.expectOne(`${service.apiUrl}/users/1`);
+    const req = httpMock.expectOne(`${service.apiUrl}/1`);
     expect(req.request.method).toBe('PUT');
     expect(req.request.body).toEqual(updatedUser);
     req.flush(updatedUser);
@@ -70,7 +70,7 @@ describe('UserService', () => {
       expect(response).toBeTruthy();
     });
 
-    const req = httpMock.expectOne(`${service.apiUrl}/users/1`);
+    const req = httpMock.expectOne(`${service.apiUrl}/1`);
     expect(req.request.method).toBe('DELETE');
     req.flush({});
   });

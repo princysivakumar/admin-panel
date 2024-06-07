@@ -16,8 +16,8 @@ describe('RoleListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RoleListComponent],
-      imports: [HttpClientTestingModule],
+     
+      imports: [HttpClientTestingModule,RoleListComponent],
       providers: [RoleService]
     }).compileComponents();
   });
