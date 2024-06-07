@@ -1,17 +1,17 @@
 <div class="container mx-auto mt-5 p-5">
-    <h2 class="text-lg font-bold mb-5 text-center hover:underline">Role List</h2>
+    <h2 class="text-lg font-bold mb-5 text-center hover:underline text-blue-900">Role List</h2>
   <div class=" flex justify-end">
 
-    <button (click)="addRole()" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 hover:bg-blue-700 animate-bounce">Add Role</button>
+    <button (click)="addRole()" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 hover:bg-blue-900 animate-bounce">Add Role</button>
   </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 ">
         @for (role of roles; track $index) {
-            <div class="bg-white p-4 rounded shadow border flex flex-col h-full">
+            <div class="bg-white p-4 rounded shadow hover:shadow-lg border flex flex-col h-full hover:text-blue-900">
                 <h3 class="text-xl font-bold">{{ role.name }}</h3>
                 <div class="flex-grow">{{ role.description }}</div>
                 <div class="flex justify-between mt-2">
-                  <button (click)="editRole(role.id)" class="bg-yellow-500 text-white px-2 py-1 rounded">Edit Role</button>
-                  <button (click)="deleteRole(role.id)" class="bg-red-500 text-white px-2 py-1 rounded">Delete Role</button>
+                  <button (click)="editRole(role.id)" class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-700">Edit Role</button>
+                  <button (click)="deleteRole(role.id)" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700">Delete Role</button>
                 </div>
               </div>
               
