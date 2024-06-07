@@ -3,8 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
 
 ## Development server
-
+Run `npm i` to install the dependency packages.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm install -g json-server` to intall mock api server.
+Run `json-server --watch db.json` for JSON Server starting on PORT :3000 
 
 ## Code scaffolding
 
