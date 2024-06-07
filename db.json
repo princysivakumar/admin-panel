@@ -4,7 +4,7 @@
       "name": "Princy.s",
       "email": "princy@gmail.com",
       "role": "Manager",
-      "status": "active",
+      "status": "inactive",
       "id": "50fd"
     },
     {
@@ -26,7 +26,7 @@
       "name": "David",
       "email": "david@gmail.com",
       "role": "User",
-      "status": "inactive",
+      "status": "active",
       "id": "ac52"
     }
   ],

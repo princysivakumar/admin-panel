@@ -19,7 +19,7 @@ export class RoleListComponent implements OnInit {
     this.loadRoles();
   }
 
-  private loadRoles() {
+  public loadRoles() {
     this.roleService.getRoles().subscribe((roles: any[]) => {
       this.roles = roles;
     });
