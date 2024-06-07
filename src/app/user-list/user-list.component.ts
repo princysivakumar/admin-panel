@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { Router } from '@angular/router';
 import { CommonModule, TitleCasePipe } from '@angular/common';
+import { User } from '../interfaces/user.interface';
 
 @Component({
   selector: 'app-user-list',
@@ -14,7 +15,7 @@ import { CommonModule, TitleCasePipe } from '@angular/common';
   
 })
 export class UserListComponent implements OnInit {
-  users: any[] = [];
+  users: User[] = [];
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -30,7 +31,7 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['/user-form'], { queryParams: { id: user.id } });
   }
 
-  public deleteUser(id: number) {
+  public deleteUser(id: string) {
     this.userService.deleteUser(id).subscribe(() => {
       this.users = this.users.filter(user => user.id !== id);
     });

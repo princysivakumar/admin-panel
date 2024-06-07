@@ -11,8 +11,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './role-form.component.scss'
 })
 export class RoleFormComponent {
-
-
   roleForm: FormGroup;
   roleId: string | null = null;
 
@@ -49,14 +47,11 @@ export class RoleFormComponent {
     })
   }
 
-  saveRole(){
-
+ public saveRole(){
     if (this.roleForm.invalid) {
       this.roleForm.markAllAsTouched();
       return
     }
-
-    
       if (this.roleId) {
         this.roleService.updateRole(this.roleId,this.roleForm.value).subscribe(() => {
           this.router.navigate(['/roles']);

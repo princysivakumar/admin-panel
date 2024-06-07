@@ -23,7 +23,7 @@ export class RoleService {
     return this.http.put<any>(`${this.apiUrl}/${roleId}`, role);
   }
 
-  public deleteRole(id: number): Observable<any> {
+  public deleteRole(id: string): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 

@@ -14,10 +14,6 @@ export class UserService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  public getUser(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
-  }
-
   public addUser(user: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, user);
   }
@@ -26,11 +22,8 @@ export class UserService {
     return this.http.put<any>(`${this.apiUrl}/${userId}`, user);
   }
 
-  public deleteUser(id: number): Observable<any> {
+  public deleteUser(id: string): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
-
-
-
 
 }

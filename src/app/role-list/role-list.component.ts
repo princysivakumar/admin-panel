@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RoleService } from '../services/role.service';
+import { Role } from '../interfaces/role.interface';
 
 @Component({
   selector: 'app-role-list',
@@ -10,7 +11,7 @@ import { RoleService } from '../services/role.service';
   styleUrl: './role-list.component.scss'
 })
 export class RoleListComponent implements OnInit {
-  roles: any[] = [];
+  roles: Role[] = [];
 
   constructor(private roleService: RoleService, private router: Router) { }
 
@@ -18,21 +19,21 @@ export class RoleListComponent implements OnInit {
     this.loadRoles();
   }
 
-  loadRoles(): void {
+  private loadRoles() {
     this.roleService.getRoles().subscribe((roles: any[]) => {
       this.roles = roles;
     });
   }
 
-  addRole(): void {
+  public addRole() {
     this.router.navigate(['/role-form']);
   }
 
-  editRole(id: number): void {
+  public editRole(id: string) {
     this.router.navigate(['/role-form'], { queryParams: { id } });
   }
 
-  deleteRole(id: number): void {
+  public deleteRole(id: string) {
     this.roleService.deleteRole(id).subscribe(() => {
       this.loadRoles();
     });
